@@ -1,20 +1,49 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require('../utils/auth');
 
-router.post('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] },
+      order: [['name', 'ASC']],
+    });
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+    const users = userData.map((project) => project.get({ plain: true }));
 
-      res.status(200).json(userData);
+    res.render('homepage', {
+      users,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
+
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
+
+
+// router.post('/', async (req, res) => {
+//   try {
+//     const userData = await User.create(req.body);
+
+//     req.session.save(() => {
+//       req.session.user_id = userData.id;
+//       req.session.logged_in = true;
+
+//       res.status(200).json(userData);
+//     });
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 router.post('/login', async (req, res) => {
   try {
@@ -27,7 +56,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = await heckPassword(reuserData.cq.body.password);
 
     if (!validPassword) {
       res
