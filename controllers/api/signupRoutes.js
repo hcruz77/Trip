@@ -3,7 +3,14 @@ const { User } = require('../../models');
 const fs = require('fs');
 
 
-
+router.get('/', async (req,res) => {
+  try {
+    const userData = await User.findAll()
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 router.post('/', async (req, res) => {
   try {
@@ -39,17 +46,22 @@ const writeToFile = (destination, content) =>
     });
   };
 
-  app.post('/api/notes', (req, res) => {
+  router.post('/api/SignUp', (req, res) => {
 
-    const {title, text} = req.body;
+    const {name, email} = req.body;
 
-    if (title && text) {
+    if (name && email) {
       const newNote = {
-        id: uniqid (),
-        title,
-        text,
+        // id: uniqid (),
+        name,
+        email,
       };
-      readAndAppend(newNote, './db/db.json');
+      readAndAppend(newNote, '../../seeds/userData.json');
       res.json('note added!');
     }
   })
+  
+
+  module.exports = router
+
+  
