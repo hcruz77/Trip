@@ -19,11 +19,12 @@ async function signupFormHandler(event) {
         console.log('success');
         document.location.replace('/');
       } else {
-        alert('could not log in')
+        console.log(response);
+        alert('could not sign up')
       }
     }
 }
   
 document.
-querySelector('.signup-form')
-.addEventListener('submit', signupFormHandler);
+querySelector('#submit-button')
+.addEventListener('click', signupFormHandler);

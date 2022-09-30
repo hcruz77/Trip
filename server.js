@@ -36,3 +36,17 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`listening at http://localhost:${PORT}`));
 });
+
+const getData = (filepath) => {
+  const data = fs.readFileSync(filepath, 'utf-8');
+  if (!data) throw Error('no data');
+  return JSON.parse(data);
+};
+
+app.get('/', (req, res) => {
+  const result = getData('./db/userDatabase');
+  if (result) {
+    res.json(result)
+  }
+});
+
