@@ -26,7 +26,7 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('/login');
+  return res.render('/homepage');
 });
 
 router.post('/signup', async (req, res) => {
