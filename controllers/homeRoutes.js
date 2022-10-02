@@ -1,12 +1,12 @@
 const router = require("express").Router();
 const { User } = require("../models");
-const withAuth = require("../utils/auth");
 
-router.get("/", withAuth, async (req, res) => {
+
+router.get("/", async (req, res) => {
   try {
     console.log(req.session.loggedIn);
     if (!req.session.loggedIn) {
-      return res.render('login')
+      return res.render('homepage')
     }
     const userData = await User.findAll({
       attributes: { exclude: ["password"] },
@@ -14,7 +14,7 @@ router.get("/", withAuth, async (req, res) => {
     });
 
     const users = userData.map((project) => project.get({ plain: true }));
-     res.render('homepage', {
+     return res.render('homepage', {
       users,
       loggedIn: req.session.loggedIn,
       user: req.session.user,
@@ -31,7 +31,7 @@ router.get("/login", (req, res) => {
   res.render("logIn");
 });
 
-router.get("/signup", (req, res) => {
+router.get("/", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
     return;
