@@ -2,11 +2,7 @@ const loginFormHandler = async (event) => {
   // Stop the browser from submitting the form so we can do so with JavaScript
   event.preventDefault();
 
-  // Gather the data from the form elements on the page
-  var button = document.getElementById('myButton');
-  button.onclick = function () {
-    location.assign ('signup')
-  }
+ 
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
