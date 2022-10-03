@@ -7,20 +7,20 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
-  return res.render("logIn");
+  return res.render("logIn", { loggedIn: req.session.loggedIn });
 });
 
-router.get("/", (req, res) => {
+router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
     return;
   }
-  return res.render("SignUp");
+  return res.render("SignUp", { loggedIn: req.session.loggedIn });
 });
 
 router.get('/', async (req, res) => {
   try {
-   return res.render('homepage')
+   return res.render('homepage', { loggedIn: req.session.loggedIn });
   } catch (err){
     res.status(500).json(err)
   }

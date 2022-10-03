@@ -16,17 +16,9 @@ router.get('/', withAuth, async (req, res) => {
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
-});
-
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-
-  return res.render('/homepage');
 });
 
 router.post('/signup', async (req, res) => {
@@ -36,7 +28,7 @@ router.post('/signup', async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
 
       res.status(200).json(userData);
     });
@@ -53,7 +45,7 @@ router.post('/signup', async (req, res) => {
 
 //     req.session.save(() => {
 //       req.session.user_id = userData.id;
-//       req.session.logged_in = true;
+//       req.session.loggedIn = true;
 
 //       res.status(200).json(userData);
 //     });
@@ -73,7 +65,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await heckPassword(reuserData.cq.body.password);
+    const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -84,18 +76,19 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
 
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
 
 router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
     });
