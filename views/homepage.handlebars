@@ -18,7 +18,11 @@
                         <div class="navbar-end">
                             <div class="tabs is-right">
                                 <ul>
+                                        {{#if loggedIn}}
+                                    <li><button class="btn" id="logout">Logout</button></li>
+                                        {{else}}
                                     <li><a href="http://localhost:3001/login">Login</a></li>
+                                        {{/if}}
                                     <li><a href="http://localhost:3001/signup">Sign Up</a></li>
                                 </ul>
                             </div>
