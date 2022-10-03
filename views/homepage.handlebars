@@ -1,6 +1,5 @@
-
 <body>
- <section class="hero is-fullheight is-default is-bold">
+    <section class="hero is-fullheight is-default is-bold">
         <div class="hero-head">
             <nav class="navbar">
                 <div class="container">
@@ -18,11 +17,11 @@
                         <div class="navbar-end">
                             <div class="tabs is-right">
                                 <ul>
-                                        {{#if loggedIn}}
+                                    {{#if loggedIn}}
                                     <li><button class="btn" id="logout">Logout</button></li>
-                                        {{else}}
+                                    {{else}}
                                     <li><a href="http://localhost:3001/login">Login</a></li>
-                                        {{/if}}
+                                    {{/if}}
                                     <li><a href="http://localhost:3001/signup">Sign Up</a></li>
                                 </ul>
                             </div>
@@ -41,15 +40,226 @@
                     </div>
                     <div class="column is-6 is-offset-1">
                         <h1 class="title is-2">
-                            Superhero Scaffolding
+                            Take a Trip
                         </h1>
                         <h2 class="subtitle is-4">
-                            Let this cover page describe a product or service.
+                            Would you like to take a trip?
+                            <form>
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Yes
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Why not
+                                    </label>
+                                </div>
+                            </form>
+                        </h2>
+                        <h2 class="subtitle is-4">
+                            Where would you take a trip?
+                            <form>
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Ireland
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Bahammas
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Sweden
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        England
+                                    </label>
+                                </div>
+                            </form>
+                        </h2>
+                        <h2 class="subtitle is-4">
+                            What kind of movies do you watch?
+                            <form>
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Comedy
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Romance
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Horror
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Action
+                                    </label>
+                                </div>
+                            </form>
+                        </h2>
+                        <h2 class="subtitle is-4">
+                            What is your favorite season?
+                            <form>
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Spring
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Summer
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Fall
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Winter
+                                    </label>
+                                </div>
+                            </form>
+                        </h2>
+                        <h2 class="subtitle is-4">
+                            What is your pet choice?
+                            <form>
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Dog
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Cat
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Fish
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Hamster
+                                    </label>
+                                </div>
+                            </form>
+                        </h2>
+                        <h2 class="subtitle is-4">
+                            What would be your top hobby?
+                            <form>
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Reading
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Playing Video Games
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Hiking
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Cooking
+                                    </label>
+                                </div>
+                            </form>
+                        </h2>
+                        <h2 class="subtitle is-4">
+                            Favorite zoo animal?
+                            <form>
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Tiger
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Polar Bear
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Hippo
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Zebra
+                                    </label>
+                                </div>
+                            </form>
+                        </h2>
+                        <h2 class="subtitle is-4">
+                            What is your favorite snack?
+                            <form>
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Fruit snacks
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Chips
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Protein bars
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Popcorn
+                                    </label>
+                                </div>
+                            </form>
+                        </h2>
+                        <h2 class="subtitle is-4">
+                            What car would you prefer?
+                            <form>
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Sedan
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        SUV
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Truck/Van
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Bike
+                                    </label>
+                                </div>
+                            </form>
+                        </h2>
+                        <h2 class="subtitle is-4">
+                            Last time we ask are you sure you want to take this trip?
+                            <form>
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Yes
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="answer">
+                                        Of Course!
+                                    </label>
+                                </div>
+                            </form>
                         </h2>
                         <br>
                         <p class="has-text-centered">
                             <a class="button is-medium is-info is-outlined">
-                                Learn more
+                                Submit
                             </a>
                         </p>
                     </div>
