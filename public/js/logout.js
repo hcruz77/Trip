@@ -1,4 +1,4 @@
-const logutBtn = document.querySelector('#logout');
+const logoutBtn = document.querySelector('#logout');
 
 const handleLogout = async (event) => {
   // Stop the browser from submitting the form so we can do so with JavaScript
@@ -15,4 +15,4 @@ const handleLogout = async (event) => {
   }
 };
 
-logutBtn.addEventListener('click', handleLogout);
+logoutBtn.addEventListener('click', handleLogout);
