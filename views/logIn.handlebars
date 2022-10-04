@@ -19,13 +19,10 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="column is-4 is-offset-4">
-                    <h3 class="title has-text-black">Login</h3>
+                    <h3 class="title has-text-white">Login</h3>
                     <hr class="login-hr">
-                    <p class="subtitle has-text-black">Please login to proceed.</p>
+                    <p class="subtitle has-text-white">Please login to proceed.</p>
                     <div class="box">
-                        <figure class="avatar">
-                            <img src="https://via.placeholder.com/150">
-                        </figure>
                         <form>
                             <div class="field">
                                 <div class="control">
@@ -42,10 +39,8 @@
                             <button id="login-btn" class="button is-block is-info is-large is-fullwidth">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
                         </form>
                     </div>
-                    <p class="has-text-grey">
-                        <Button id="sign-up">Sign Up
-                
-                        </Button>
+                    <p class="has-text-white">
+                        <Button id="sign-up">Sign Up</Button>
                     </p>
                 </div>
             </div>
@@ -53,5 +48,25 @@
     </section>
 <script src="/js/login.js"></script>
 </body>
+
+<style>
+  :root {
+      --background: rgb(25, 25, 25);
+      --textDark: white;
+      --textLight: white;
+    }
+
+    body {
+      background: var(--background);
+      height: 100vh;
+      color: var(--textDark);
+    }
+
+    .box {
+      margin-top: 10rem;
+      background: rgb(50, 50, 50);
+      border-radius: 10px;
+    }
+</style>
 
 </html>
