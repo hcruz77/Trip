@@ -60,11 +60,11 @@
                                 <div class="control">
                                     <label class="radio">
                                         <input type="radio" name="answer">
-                                        Ireland
+                                        Japan
                                     </label>
                                     <label class="radio">
                                         <input type="radio" name="answer">
-                                        Bahammas
+                                        Bahamas
                                     </label>
                                     <label class="radio">
                                         <input type="radio" name="answer">
@@ -254,16 +254,45 @@
                             </form>
                         </h2>
                         <p class="has-text-centered has-text-white">
-                            <a class="button is-medium is-info is-outlined has-text-white">
+                            <button class="button is-medium is-info is-outlined has-text-white submitBtn">
                                 Submit
-                            </a>
+                            </button>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script>
+        // Sourced from:
+        // 
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+        const urlString = 'https://www.google.com/search?q='
+        const submitBtn = document.querySelector('.submitBtn');
+        submitBtn.addEventListener('click', e => {
+            e.preventDefault();
+            let radios = document.querySelectorAll('.radio');
+            let temp = [];
+            radios.forEach(radio=>temp.push(radio.children[0]));
+            let checked = [];
+            temp.forEach((t,i)=>t.checked?checked.push(temp[i].parentElement.textContent.replace(/[\s|\r]/gm,'')):false);
+            checked = shuffleArray(checked);
+            randomChecked = checked.slice(0,2);
+            let search = urlString + randomChecked.join('+');
+            let aLink = document.createElement('a');
+            aLink.setAttribute('href',search)
+            aLink.textContent = search;
+            submitBtn.parentElement.appendChild(aLink);
+        })
+    </script>
 </body>
+
 
 <script>
       :root {
@@ -277,5 +306,10 @@
       height: 100vh;
       color: var(--textDark);
     }
+    .noHover {
+      pointer-events: none !important;
+      color: white;
+    }
+    
 </script>
 </html>
